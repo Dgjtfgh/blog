@@ -1,0 +1,19 @@
+.author-div{
+    text-align: center;
+    padding: 1rem !important;
+
+}
+.author-div div{
+    /* text-align: center; */
+    margin-bottom: 1rem;
+}
+.author-introduction{
+    /* text-align: center; */
+    font-size:.8rem;
+    color: #999;
+}
+.account{
+    background-color: #999;
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
