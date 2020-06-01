@@ -13,7 +13,7 @@
       "protocolWhiteList": [],
       "defaultMiddleware": "csrf,hsts,methodnoallow,noopen,nosniff,csp,xssProtection,xframe,dta",
       "csrf": {
-        "enable": true,
+        "enable": false,
         "type": "ctoken",
         "ignoreJSON": false,
         "useSession": false,
@@ -61,9 +61,6 @@
         "ipBlackList": null,
         "checkAddress": null
       },
-      "scrf": {
-        "enable": false
-      },
       "_protocolWhiteListSet": "<Set>"
     },
     "helper": {
@@ -80,7 +77,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "D:\\blog\\service\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "D:\\blog\\blog\\service\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -93,8 +90,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "D:\\blog\\service\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "D:\\blog\\service\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "D:\\blog\\blog\\service\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "D:\\blog\\blog\\service\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
@@ -140,14 +137,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "D:\\blog\\service\\app\\public",
+      "dir": "D:\\blog\\blog\\service\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "D:\\blog\\service\\app\\view",
+      "root": "D:\\blog\\blog\\service\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -165,12 +162,15 @@
         "port": "3306",
         "user": "root",
         "password": "<String len: 6>",
-        "database": "MyBlog"
+        "database": "myblog"
       }
     },
     "cors": {
       "origin": "*",
-      "allowMethods": "GET,HEAD,PUT,DELETE,PATCH,OPTINS"
+      "allowMethods": "GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS"
+    },
+    "origin": {
+      "whiteList": []
     },
     "env": "local",
     "name": "service",
@@ -194,6 +194,7 @@
         "egg": "^2.15.1",
         "egg-cors": "^2.2.3",
         "egg-mysql": "^3.0.0",
+        "egg-origin": "^1.0.3",
         "egg-scripts": "^2.11.0"
       },
       "devDependencies": {
@@ -230,9 +231,9 @@
       "author": "",
       "license": "MIT"
     },
-    "baseDir": "D:\\blog\\service",
+    "baseDir": "D:\\blog\\blog\\service",
     "HOME": "C:\\Users\\xiao1",
-    "rundir": "D:\\blog\\service\\run",
+    "rundir": "D:\\blog\\blog\\service\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -252,8 +253,8 @@
     "bodyParser": {
       "enable": true,
       "encoding": "utf8",
-      "formLimit": "1mb",
-      "jsonLimit": "1mb",
+      "formLimit": "5024kb",
+      "jsonLimit": "5024kb",
       "textLimit": "1mb",
       "strict": true,
       "queryString": {
@@ -264,7 +265,7 @@
       "onerror": "<Function onerror>"
     },
     "logger": {
-      "dir": "D:\\blog\\service\\logs\\service",
+      "dir": "D:\\blog\\blog\\service\\logs\\service",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -340,8 +341,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-session",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-session",
       "version": "3.2.0"
     },
     "security": {
@@ -353,8 +354,8 @@
         "session"
       ],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-security",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-security",
       "version": "2.8.0"
     },
     "jsonp": {
@@ -366,8 +367,8 @@
         "security"
       ],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-jsonp",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -379,8 +380,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-onerror",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -390,8 +391,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-i18n",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -401,8 +402,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-watcher",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-watcher",
       "version": "3.1.1"
     },
     "schedule": {
@@ -412,8 +413,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-schedule",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -425,8 +426,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-multipart",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-multipart",
       "version": "2.10.3"
     },
     "development": {
@@ -440,9 +441,9 @@
       "env": [
         "local"
       ],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-development",
-      "version": "2.4.3"
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-development",
+      "version": "2.5.0"
     },
     "logrotator": {
       "enable": true,
@@ -453,8 +454,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-logrotator",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -464,8 +465,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-static",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -475,8 +476,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\node_modules\\egg\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-view",
+      "from": "D:\\blog\\blog\\service\\node_modules\\egg\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-view",
       "version": "2.1.2"
     },
     "mysql": {
@@ -486,8 +487,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-mysql",
+      "from": "D:\\blog\\blog\\service\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-mysql",
       "version": "3.0.0"
     },
     "cors": {
@@ -497,9 +498,20 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "D:\\blog\\service\\config\\plugin.js",
-      "path": "D:\\blog\\service\\node_modules\\egg-cors",
+      "from": "D:\\blog\\blog\\service\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-cors",
       "version": "2.2.3"
+    },
+    "origin": {
+      "enable": true,
+      "package": "egg-origin",
+      "name": "origin",
+      "dependencies": [],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "D:\\blog\\blog\\service\\config\\plugin.js",
+      "path": "D:\\blog\\blog\\service\\node_modules\\egg-origin",
+      "version": "1.0.3"
     }
   }
 }

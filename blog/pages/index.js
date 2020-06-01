@@ -3,14 +3,31 @@ import Head from 'next/head'
 import { Row, Col, List } from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
-import Advert from '../components/Advert'
+// import Advert from '../components/Advert'
 import Footer from '../components/Footer'
+import '../static/style/pages/comm.css'
 import '../static/style/pages/index.css'
 import axios from 'axios'
 import Link from 'next/link'
+import servicePath  from '../config/apiUrl'
+import marked from 'marked'
+import hljs from 'highlight.js'
 
 export default function Home(list) {
-    const [mylist, setMylist] = useState(list.data)
+    const [mylist, setMylist] = useState(list.data);
+    const renderer = new marked.Renderer();
+    marked.setOptions({
+        renderer: renderer,
+        gfm: true,
+        pedantic: false,
+        sanitize: false,
+        tables: true,
+        breaks: false,
+        smartLists: true,
+        highlight: function (code) {
+            return hljs.highlightAuto(code).value
+        }
+    })
     return (
         <div className="container" >
             <Head >
@@ -32,24 +49,26 @@ export default function Home(list) {
                             item => (
                                 <List.Item>
                                     <div className="list-title" >
-                                        <Link href={{ pathname: '/detailed', query: { id: item.id } }} >
+                                        <Link href={{ pathname: '/detailed',query:{id:item.id}}}>
                                             <a>{item.title}</a>
                                         </Link>
                                     </div>
                                     <div className="list-icon">
                                         <span ><img src="../static/images/calendar.png" ></img>{item.addTime}</span>
                                         <span ><img src="" ></img> {item.typeName}</span >
-                                        <span><img src=""></img> {item.view_count}</span>
+                                        <span><img src=""></img> {item.view_count}人</span>
                                     </div>
-                                    <div className="list-context" > {item.introduce} </div>
+                                    <div className="list-context"
+                                        dangerouslySetInnerHTML={{__html:marked(item.introduce)}}
+                                    ></div>
                                 </List.Item>
                             )
                         }
                     />
                 </Col>
-                <Col className="comm-left" xs={0} sm={0} md={7} lg={5} xl={4} >
+                <Col className="comm-right" xs={0} sm={0} md={7} lg={5} xl={4} >
                     <Author />
-                    <Advert />
+                    {/* <Advert /> */}
                 </Col>
             </Row>
             <Footer />
@@ -59,7 +78,7 @@ export default function Home(list) {
 
 Home.getInitialProps = async () => {
     const promise = new Promise((resolve) => {
-        axios('http://127.0.0.1:7001/web/getArticleList').then(
+        axios(servicePath.getArticleList).then(
             (res) => {
                 console.log('---->', res.data);
                 resolve(res.data);
