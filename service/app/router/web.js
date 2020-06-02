@@ -6,6 +6,4 @@ module.exports = app => {
   router.get('/web/getArticleById/:id', controller.web.home.getArticleById);
   router.get('/web/getTypeInfo', controller.web.home.getTypeInfo);
   router.get('/web/getListById/:id', controller.web.home.getListById);
-//   router.get('/web/getAllPartCount', controller.web.home.getAllPartCount);
-  // router.get('/web/getListBBD',controller.web.home.getListBBD);
 };

@@ -72,6 +72,7 @@
   },
   "cors": {
     "origin": "D:\\blog\\blog\\service\\config\\config.default.js",
+    "credentials": "D:\\blog\\blog\\service\\config\\config.default.js",
     "allowMethods": "D:\\blog\\blog\\service\\config\\config.default.js"
   },
   "bodyParser": {
