@@ -8,5 +8,7 @@ let servicePath = {
     getArticleList:Url + 'getArticleList' ,  // 获得文章列表
     delArticle:Url + 'delArticle/' ,  // 删除文章
     getArticleById:Url + 'getArticleById/' ,  // 根据文章ID得到文章详情，用于修改文章
+    getUserInfo: Url + 'getUserInfo/',
+    changeUserInfo: Url + 'changeUserInfo',
 }
 export default servicePath;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../static/style/ArticleList.css';
-import { List, Row, Col, Modal, message, Button, Switch } from 'antd';
+import { List, Row, Col, Modal, message, Button } from 'antd';
 import axios from 'axios';
 import servicePath from '../config/ApiUrl';
 
@@ -19,7 +19,12 @@ function ArticleList(props) {
         }).then(
             res => {
                 console.log(res.data);
-                setList(res.data.list);
+                if (res.data.data === '没有登录') {
+                    localStorage.removeItem('userId');
+                    props.history.push('/');
+                } else {
+                    setList(res.data.list);
+                }
             }
         )
     }
@@ -61,9 +66,6 @@ function ArticleList(props) {
                         <Col span={4}>
                             <b>发布时间</b>
                         </Col>
-                        {/* <Col span={3}>
-                            <b>集数</b>
-                        </Col> */}
                         <Col span={4}>
                             <b>浏览量</b>
                         </Col>
@@ -87,15 +89,12 @@ function ArticleList(props) {
                             <Col span={4}>
                                 {item.addTime}
                             </Col>
-                            {/* <Col span={3}>
-                                共<span>{item.part_count}</span>集
-                            </Col> */}
                             <Col span={4}>
                                 {item.view_count}
                             </Col>
                             <Col span={4}>
                                 <Button type="primary" size="middle" onClick={() => {updateArticle(item.id)}}>修改</Button>
-                                <Button size="middle" onClick={() => {delArticle(item.id)}} >删除 </Button>
+                                <Button size="middle" style={{marginLeft: '2px'}} onClick={() => {delArticle(item.id)}} >删除 </Button>
                             </Col>
                         </Row>
                     </List.Item>

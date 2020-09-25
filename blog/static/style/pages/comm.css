@@ -5,7 +5,7 @@ body {
 .comm-left{
     background-color: #FFF;
     margin-left: 0.5rem;
-    padding:.3rem;
+    padding:.3rem 1rem;
     border-radius: .3rem;
     border:1px solid #eee;
     margin-bottom: 16px;

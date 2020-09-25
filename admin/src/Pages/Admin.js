@@ -2,17 +2,16 @@ import React, { useState } from 'react';
 import { Layout, Menu, Breadcrumb } from 'antd';
 import {
     DesktopOutlined,
-    PieChartOutlined,
-    FileOutlined,
-    TeamOutlined,
     UserOutlined,
+    PoweroffOutlined
 } from '@ant-design/icons';
 import '../static/style/Admin.css';
 import { Route } from 'react-router-dom';
 import AddArticle from './AddArticle';
 import ArticleList from './ArticleList';
+import ChangeInfo from './ChangeInfo';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 function Admin(props) {
@@ -23,11 +22,16 @@ function Admin(props) {
     };
 
     const handleClickArticle = e => {
-        console.log(e.item.props);
-        if (e.key == 'addArticle') {
+        // console.log(e.item.props);
+        if (e.key === 'addArticle') {
             props.history.push('/index/add');
-        } else {
+        } else if(e.key === 'articleList') {
             props.history.push('/index/list');
+        } else if(e.key === 'personalInfo') {
+            props.history.push('/index/ChangeInfo');
+        } else if(e.key === 'exit') {;
+            localStorage.removeItem('userId');
+            props.history.push('/');
         }
     }
 
@@ -35,26 +39,22 @@ function Admin(props) {
         <Layout style={{ minHeight: '100vh' }}>
             <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
                 <div className="logo" />
-                <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-                    <Menu.Item key="1" icon={<PieChartOutlined />}>
-                        工作台
-                    </Menu.Item>
-                    <Menu.Item key="2" icon={<DesktopOutlined />}>
-                        添加文章
-                    </Menu.Item>
+                <Menu theme="dark" defaultSelectedKeys={['addArticle']} mode="inline">
                     <SubMenu
                         key="sub1"
                         onClick={handleClickArticle}
-                        icon={<UserOutlined />}
+                        icon={<DesktopOutlined />}
                         title="文章管理"
                     >
                         <Menu.Item key="addArticle">添加文章</Menu.Item>
                         <Menu.Item key="articleList">文章列表</Menu.Item>
                     </SubMenu>
-                    <Menu.Item key="5" icon={<DesktopOutlined />}>
-                        留言管理
+                    <Menu.Item onClick={handleClickArticle} key="personalInfo" icon={<UserOutlined />}>
+                        个人信息管理
                     </Menu.Item>
-                    {/* <Menu.Item key="9" icon={<FileOutlined />} /> */}
+                    <Menu.Item onClick={handleClickArticle} key="exit" icon={<PoweroffOutlined />}>
+                        退出
+                    </Menu.Item>
                 </Menu>
             </Sider>
             <Layout className="site-layout">
@@ -70,6 +70,7 @@ function Admin(props) {
                             <Route path="/index/add/" exact component={AddArticle} />
                             <Route path="/index/list/" exact component={ArticleList} />
                             <Route path="/index/add/:id" exact component={AddArticle} />
+                            <Route path="/index/changeInfo" exact component={ChangeInfo} />
                         </div>
                     </div>
                 </Content>

@@ -5,5 +5,6 @@ let servicePath = {
     getArticleById:Url + 'getArticleById/',  // 文章详细页内容接口 ,需要接收参数
     getTypeInfo:Url + 'getTypeInfo',  // 文章类别接口
     getListById:Url + 'getListById/',  // 文章类别接口
+    getUserInfo: Url + 'getUserInfo',
 }
 export default servicePath;

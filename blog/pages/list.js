@@ -14,6 +14,7 @@ import hljs from 'highlight.js'
 export default function MyList(list) {
     const [mylist, setMylist] = useState(list.data);
     useEffect(() => {
+
         setMylist(list.data);
     })
     const renderer = new marked.Renderer();
@@ -81,8 +82,14 @@ MyList.getInitialProps = async (context) => {
     const promise = new Promise((resolve) => {
         axios(servicePath.getListById+id).then(
             (res) => {
-                // console.log('---->', res.data);
-                resolve(res.data);
+                // console.log(res.data)
+                let data = res.data;
+                data.data.sort((a, b) => {
+                    let A = new Date(a.addTime).getTime();
+                    let B = new Date(b.addTime).getTime();
+                    return B - A;
+                })
+                resolve(data);
             }
         )
     })

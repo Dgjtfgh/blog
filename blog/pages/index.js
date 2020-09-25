@@ -30,9 +30,10 @@ export default function Home(list) {
     })
     return (
         <div className="container" >
-            <Head >
-                <title > Home </title>
-            </Head> <Header />
+            <Head>
+                <title> Home </title>
+            </Head> 
+            <Header />
             <Row className="comm-main"
                 type="flex"
                 justify="center" >
@@ -55,8 +56,8 @@ export default function Home(list) {
                                     </div>
                                     <div className="list-icon">
                                         <span ><img src="../static/images/calendar.png" ></img>{item.addTime}</span>
-                                        <span ><img src="" ></img> {item.typeName}</span >
-                                        <span><img src=""></img> {item.view_count}人</span>
+                                        <span ><img src="../static/images/type.png" ></img> {item.typeName}</span >
+                                        <span><img src="../static/images/ren.png"></img> {item.view_count}人</span>
                                     </div>
                                     <div className="list-context"
                                         dangerouslySetInnerHTML={{__html:marked(item.introduce)}}
@@ -80,8 +81,13 @@ Home.getInitialProps = async () => {
     const promise = new Promise((resolve) => {
         axios(servicePath.getArticleList).then(
             (res) => {
-                console.log('---->', res.data);
-                resolve(res.data);
+                let data = res.data;
+                data.data.sort((a, b) => {
+                    let A = new Date(a.addTime).getTime();
+                    let B = new Date(b.addTime).getTime();
+                    return B - A;
+                })
+                resolve(data);
             }
         )
     })

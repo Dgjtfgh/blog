@@ -35,9 +35,10 @@ function Login(props){
             withCredentials: true
         }).then(
             res => {
-                setIsLoading(false);
-                if (res.data.data == '登录成功') {
-                    localStorage.setItem('openId',res.data.openId);
+                // setIsLoading(false);
+                if (res.data.data === '登录成功') {
+                    // localStorage.setItem('openId',res.data.openId);
+                    localStorage.setItem('userId',res.data.id.id);
                     props.history.push('/index');
                 } else {
                     message.error('用户名密码错误!');
@@ -47,7 +48,6 @@ function Login(props){
                 }
             }
         )
-        
     }
     return (
         <div className="login-div">

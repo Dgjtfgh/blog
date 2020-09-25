@@ -4,6 +4,7 @@ import { Row, Col, Breadcrumb, Affix } from 'antd'
 import Header from '../components/Header'
 import Author from '../components/Author'
 import Footer from '../components/Footer'
+import '../static/style/pages/comm.css'
 import '../static/style/pages/detailed.css'
 import axios from 'axios'
 import marked from 'marked'
@@ -13,7 +14,7 @@ import Tocify from '../components/tocify.tsx'
 import servicePath  from '../config/apiUrl'
 
 const Detailed = (props) => {
-    let articleContent=props.article_content;
+    let articleContent = props.article_content;
     const renderer = new marked.Renderer();
     const tocify = new Tocify()
     renderer.heading = function (text, level, raw) {
@@ -33,7 +34,7 @@ const Detailed = (props) => {
         }
     })
 
-    let html = marked(props.article_content)
+    let html = marked(articleContent)
 
     return (
         <>
@@ -57,8 +58,8 @@ const Detailed = (props) => {
                             </div>
                             <div className="list-icon center">
                                 <span><img src="../static/images/calendar.png"></img>{props.addTime}</span>
-                                <span><img src=""></img> {props.typeName}</span>
-                                <span><img src=""></img> {props.view_count}人</span>
+                                <span><img src="../static/images/type.png"></img> {props.typeName}</span>
+                                <span><img src="../static/images/ren.png"></img> {props.view_count}人</span>
                             </div>
                             <div className="detailed-content"
                                 dangerouslySetInnerHTML={{ __html: html }}
