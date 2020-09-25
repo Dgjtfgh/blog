@@ -93,6 +93,19 @@
       "GET"
     ],
     "paramNames": [],
+    "path": "/web/getUserInfo",
+    "regexp": "/^\\/web\\/getUserInfo(?:\\/(?=$))?$/",
+    "stack": [
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [],
     "path": "/admin/index",
     "regexp": "/^\\/admin\\/index(?:\\/(?=$))?$/",
     "stack": [
@@ -210,6 +223,44 @@
     ],
     "path": "/admin/getArticleById/:id",
     "regexp": "/^\\/admin\\/getArticleById\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "adminauth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "HEAD",
+      "GET"
+    ],
+    "paramNames": [
+      {
+        "name": "id",
+        "prefix": "/",
+        "delimiter": "/",
+        "optional": false,
+        "repeat": false,
+        "partial": false,
+        "asterisk": false,
+        "pattern": "[^\\/]+?"
+      }
+    ],
+    "path": "/admin/getUserInfo/:id",
+    "regexp": "/^\\/admin\\/getUserInfo\\/((?:[^\\/]+?))(?:\\/(?=$))?$/",
+    "stack": [
+      "adminauth",
+      "wrappedController"
+    ]
+  },
+  {
+    "name": null,
+    "methods": [
+      "POST"
+    ],
+    "paramNames": [],
+    "path": "/admin/changeUserInfo",
+    "regexp": "/^\\/admin\\/changeUserInfo(?:\\/(?=$))?$/",
     "stack": [
       "adminauth",
       "wrappedController"

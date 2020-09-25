@@ -1,3 +1,4 @@
+/* eslint-disable no-dupe-class-members */
 'use strict';
 
 const Controller = require('egg').Controller;
@@ -14,15 +15,16 @@ class MainContoller extends Controller {
   async checkLogin() {
     const userName = this.ctx.request.body.userName;
     const password = this.ctx.request.body.password;
-    // console.log(userName, password);
-    const sql = " SELECT userName FROM admin_user WHERE userName = '" + userName + "' AND password = '" + password + "'";
+    console.log(userName, password);
+    const sql = " SELECT id FROM admin_user WHERE userName = '" + userName + "' AND password = '" + password + "'";
     const res = await this.app.mysql.query(sql);
+    const id = res[0];
     if (res.length > 0) {
-      const openId = new Date().getTime();
-      this.ctx.session.openId = { openId };
+      // const openId = new Date().getTime();
+      this.ctx.session.id = id;
       this.ctx.body = {
         data: '登录成功',
-        openId,
+        id,
       };
     } else {
       this.ctx.body = { data: '登录失败' };
@@ -52,7 +54,7 @@ class MainContoller extends Controller {
     const tmpArticle = this.ctx.request.body;
     const result = await this.app.mysql.update('article', tmpArticle);
     const updateSuccess = result.affectedRows === 1;
-    console.log(updateSuccess);
+    // console.log(updateSuccess);
     this.ctx.body = {
       isScuccess: updateSuccess,
     };
@@ -61,7 +63,7 @@ class MainContoller extends Controller {
   async getArticleList() {
     const sql = 'SELECT article.id as id,' +
       'article.title as title,' +
-      'article.introduce as introduce,' +
+      'article.view_count as view_count,' +
       "FROM_UNIXTIME(article.addTime,'%Y-%m-%d' ) as addTime," +
       'type.typeName as typeName ' +
       'FROM article LEFT JOIN type ON article.type_id = type.Id ' +
@@ -72,7 +74,7 @@ class MainContoller extends Controller {
   // 删除文章
   async delArticle() {
     const id = this.ctx.params.id;
-    console.log(id);
+    // console.log(id);
     const res = await this.app.mysql.delete('article', { id });
     this.ctx.body = { data: res };
   }
@@ -92,7 +94,24 @@ class MainContoller extends Controller {
     const result = await this.app.mysql.query(sql);
     this.ctx.body = { data: result };
   }
+  // 获取账户信息
+  async getUserInfo() {
+    const id = this.ctx.params.id;
+    const sql = " SELECT * FROM admin_user WHERE id = '" + id + "'";
+    const result = await this.app.mysql.query(sql);
+    this.ctx.body = { data: result };
+  }
 
+  // 修改账户信息
+  async changeUserInfo() {
+    const tmpUserInfo = this.ctx.request.body;
+    const result = await this.app.mysql.update('admin_user', tmpUserInfo);
+    const updateSuccess = result.affectedRows === 1;
+    console.log(updateSuccess);
+    this.ctx.body = {
+      isScuccess: updateSuccess,
+    };
+  }
 }
 
 module.exports = MainContoller;

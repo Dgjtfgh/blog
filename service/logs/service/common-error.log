@@ -1,12 +1,28 @@
-2020-06-01 11:44:00,432 ERROR 6524 nodejs.ClusterClientNoResponseError: client no response in 36052707ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+2020-09-25 01:15:15,089 ERROR 6148 nodejs.ClusterClientNoResponseError: client no response in 406911ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
     at Timeout._onTimeout (D:\blog\blog\service\node_modules\cluster-client\lib\leader.js:77:23)
     at listOnTimeout (internal/timers.js:531:17)
     at processTimers (internal/timers.js:475:7)
 name: "ClusterClientNoResponseError"
-pid: 6524
+pid: 6148
 hostname: DESKTOP-TMQCRSH
 
-2020-06-02 12:01:03,681 ERROR 6944 [-/127.0.0.1/-/296ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
+2020-09-25 04:45:35,481 ERROR 6148 nodejs.ClusterClientNoResponseError: client no response in 10814728ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\blog\blog\service\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+name: "ClusterClientNoResponseError"
+pid: 6148
+hostname: DESKTOP-TMQCRSH
+
+2020-09-25 08:32:39,049 ERROR 6148 nodejs.ClusterClientNoResponseError: client no response in 13606203ms exceeding maxIdleTime 60000ms, maybe the connection is close on other side.
+    at Timeout._onTimeout (D:\blog\blog\service\node_modules\cluster-client\lib\leader.js:77:23)
+    at listOnTimeout (internal/timers.js:531:17)
+    at processTimers (internal/timers.js:475:7)
+name: "ClusterClientNoResponseError"
+pid: 6148
+hostname: DESKTOP-TMQCRSH
+
+2020-09-25 10:51:15,329 ERROR 9924 [-/127.0.0.1/-/109ms POST /admin/addArticle] nodejs.ER_WARN_DATA_OUT_OF_RANGEError: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'addTime' at row 1
     at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
     at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
     at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
@@ -28,19 +44,19 @@ hostname: DESKTOP-TMQCRSH
     at proto.query.next (<anonymous>)
     at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
     at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1092)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
+    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002275186, 1024)
+code: "ER_WARN_DATA_OUT_OF_RANGE"
+errno: 1264
+sqlMessage: "Out of range value for column 'addTime' at row 1"
+sqlState: "22003"
 index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1092)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
+sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002275186, 1024)"
+headers: {"Access-Control-Allow-Origin":"http://127.0.0.1:3001","Access-Control-Allow-Credentials":"true","vary":"Origin"}
+name: "ER_WARN_DATA_OUT_OF_RANGEError"
+pid: 9924
 hostname: DESKTOP-TMQCRSH
 
-2020-06-02 12:01:07,865 ERROR 6944 [-/127.0.0.1/-/6ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
+2020-09-25 10:51:18,218 ERROR 9924 [-/127.0.0.1/-/7ms POST /admin/addArticle] nodejs.ER_WARN_DATA_OUT_OF_RANGEError: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'addTime' at row 1
     at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
     at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
     at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
@@ -62,19 +78,19 @@ hostname: DESKTOP-TMQCRSH
     at proto.query.next (<anonymous>)
     at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
     at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1041)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
+    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002278200, 1063)
+code: "ER_WARN_DATA_OUT_OF_RANGE"
+errno: 1264
+sqlMessage: "Out of range value for column 'addTime' at row 1"
+sqlState: "22003"
 index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1041)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
+sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002278200, 1063)"
+headers: {"Access-Control-Allow-Origin":"http://127.0.0.1:3001","Access-Control-Allow-Credentials":"true","vary":"Origin"}
+name: "ER_WARN_DATA_OUT_OF_RANGEError"
+pid: 9924
 hostname: DESKTOP-TMQCRSH
 
-2020-06-02 12:01:33,736 ERROR 6944 [-/127.0.0.1/-/6ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
+2020-09-25 10:51:19,572 ERROR 9924 [-/127.0.0.1/-/6ms POST /admin/addArticle] nodejs.ER_WARN_DATA_OUT_OF_RANGEError: ER_WARN_DATA_OUT_OF_RANGE: Out of range value for column 'addTime' at row 1
     at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
     at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
     at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
@@ -96,185 +112,15 @@ hostname: DESKTOP-TMQCRSH
     at proto.query.next (<anonymous>)
     at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
     at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1033)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
+    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002279556, 1079)
+code: "ER_WARN_DATA_OUT_OF_RANGE"
+errno: 1264
+sqlMessage: "Out of range value for column 'addTime' at row 1"
+sqlState: "22003"
 index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1033)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
-hostname: DESKTOP-TMQCRSH
-
-2020-06-02 12:01:35,235 ERROR 6944 [-/127.0.0.1/-/5ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
-    at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
-    at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
-    at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:433:10)
-    at Parser.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:43:10)
-    at Protocol.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:38:16)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:88:28)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:526:10)
-    at Socket.emit (events.js:210:5)
-    at addChunk (_stream_readable.js:309:12)
-    --------------------
-    at Pool.query (D:\blog\blog\service\node_modules\mysql\lib\Pool.js:199:23)
-    at D:\blog\blog\service\node_modules\pify\index.js:29:7
-    at new Promise (<anonymous>)
-    at Pool.<anonymous> (D:\blog\blog\service\node_modules\pify\index.js:12:10)
-    at Pool.ret [as query] (D:\blog\blog\service\node_modules\pify\index.js:56:34)
-    at RDSClient.proto._query (D:\blog\blog\service\node_modules\ali-rds\lib\client.js:34:20)
-    at RDSClient.proto.query (D:\blog\blog\service\node_modules\ali-rds\lib\operator.js:54:29)
-    at proto.query.next (<anonymous>)
-    at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
-    at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1055)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
-index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'wghj', 'sffh hyh', 't hnjnn', 1591027200, 1055)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
-hostname: DESKTOP-TMQCRSH
-
-2020-06-02 12:01:53,235 ERROR 6944 [-/127.0.0.1/-/7ms POST /admin/addArticle] nodejs.ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError: ER_TRUNCATED_WRONG_VALUE_FOR_FIELD: Incorrect integer value: '选择类别' for column 'type_id' at row 1
-    at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
-    at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
-    at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:433:10)
-    at Parser.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:43:10)
-    at Protocol.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:38:16)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:88:28)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:526:10)
-    at Socket.emit (events.js:210:5)
-    at addChunk (_stream_readable.js:309:12)
-    --------------------
-    at Pool.query (D:\blog\blog\service\node_modules\mysql\lib\Pool.js:199:23)
-    at D:\blog\blog\service\node_modules\pify\index.js:29:7
-    at new Promise (<anonymous>)
-    at Pool.<anonymous> (D:\blog\blog\service\node_modules\pify\index.js:12:10)
-    at Pool.ret [as query] (D:\blog\blog\service\node_modules\pify\index.js:56:34)
-    at RDSClient.proto._query (D:\blog\blog\service\node_modules\ali-rds\lib\client.js:34:20)
-    at RDSClient.proto.query (D:\blog\blog\service\node_modules\ali-rds\lib\operator.js:54:29)
-    at proto.query.next (<anonymous>)
-    at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
-    at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES('选择类别', 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1040)
-code: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELD"
-errno: 1366
-sqlMessage: "Incorrect integer value: '选择类别' for column 'type_id' at row 1"
-sqlState: "HY000"
-index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES('选择类别', 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1040)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_TRUNCATED_WRONG_VALUE_FOR_FIELDError"
-pid: 6944
-hostname: DESKTOP-TMQCRSH
-
-2020-06-02 12:02:45,264 ERROR 6944 [-/127.0.0.1/-/5ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
-    at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
-    at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
-    at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:433:10)
-    at Parser.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:43:10)
-    at Protocol.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:38:16)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:88:28)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:526:10)
-    at Socket.emit (events.js:210:5)
-    at addChunk (_stream_readable.js:309:12)
-    --------------------
-    at Pool.query (D:\blog\blog\service\node_modules\mysql\lib\Pool.js:199:23)
-    at D:\blog\blog\service\node_modules\pify\index.js:29:7
-    at new Promise (<anonymous>)
-    at Pool.<anonymous> (D:\blog\blog\service\node_modules\pify\index.js:12:10)
-    at Pool.ret [as query] (D:\blog\blog\service\node_modules\pify\index.js:56:34)
-    at RDSClient.proto._query (D:\blog\blog\service\node_modules\ali-rds\lib\client.js:34:20)
-    at RDSClient.proto.query (D:\blog\blog\service\node_modules\ali-rds\lib\operator.js:54:29)
-    at proto.query.next (<anonymous>)
-    at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
-    at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1025)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
-index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1025)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
-hostname: DESKTOP-TMQCRSH
-
-2020-06-02 12:07:41,908 ERROR 6944 [-/127.0.0.1/-/7ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
-    at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
-    at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
-    at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:433:10)
-    at Parser.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:43:10)
-    at Protocol.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:38:16)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:88:28)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:526:10)
-    at Socket.emit (events.js:210:5)
-    at addChunk (_stream_readable.js:309:12)
-    --------------------
-    at Pool.query (D:\blog\blog\service\node_modules\mysql\lib\Pool.js:199:23)
-    at D:\blog\blog\service\node_modules\pify\index.js:29:7
-    at new Promise (<anonymous>)
-    at Pool.<anonymous> (D:\blog\blog\service\node_modules\pify\index.js:12:10)
-    at Pool.ret [as query] (D:\blog\blog\service\node_modules\pify\index.js:56:34)
-    at RDSClient.proto._query (D:\blog\blog\service\node_modules\ali-rds\lib\client.js:34:20)
-    at RDSClient.proto.query (D:\blog\blog\service\node_modules\ali-rds\lib\operator.js:54:29)
-    at proto.query.next (<anonymous>)
-    at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
-    at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1096)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
-index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1096)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 6944
-hostname: DESKTOP-TMQCRSH
-
-2020-06-02 12:09:05,568 ERROR 12968 [-/127.0.0.1/-/173ms POST /admin/addArticle] nodejs.ER_NO_DEFAULT_FOR_FIELDError: ER_NO_DEFAULT_FOR_FIELD: Field 'id' doesn't have a default value
-    at Query.Sequence._packetToError (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
-    at Query.ErrorPacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
-    at Protocol._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:291:23)
-    at Parser._parsePacket (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:433:10)
-    at Parser.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Parser.js:43:10)
-    at Protocol.write (D:\blog\blog\service\node_modules\mysql\lib\protocol\Protocol.js:38:16)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:88:28)
-    at Socket.<anonymous> (D:\blog\blog\service\node_modules\mysql\lib\Connection.js:526:10)
-    at Socket.emit (events.js:210:5)
-    at addChunk (_stream_readable.js:309:12)
-    --------------------
-    at Pool.query (D:\blog\blog\service\node_modules\mysql\lib\Pool.js:199:23)
-    at D:\blog\blog\service\node_modules\pify\index.js:29:7
-    at new Promise (<anonymous>)
-    at Pool.<anonymous> (D:\blog\blog\service\node_modules\pify\index.js:12:10)
-    at Pool.ret [as query] (D:\blog\blog\service\node_modules\pify\index.js:56:34)
-    at RDSClient.proto._query (D:\blog\blog\service\node_modules\ali-rds\lib\client.js:34:20)
-    at RDSClient.proto.query (D:\blog\blog\service\node_modules\ali-rds\lib\operator.js:54:29)
-    at proto.query.next (<anonymous>)
-    at onFulfilled (D:\blog\blog\service\node_modules\co\index.js:65:19)
-    at D:\blog\blog\service\node_modules\co\index.js:54:5
-    sql: INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1086)
-code: "ER_NO_DEFAULT_FOR_FIELD"
-errno: 1364
-sqlMessage: "Field 'id' doesn't have a default value"
-sqlState: "HY000"
-index: 0
-sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'dfhgjj', 'dfhk;;cccx', 'rtuyy', 1591113600, 1086)"
-headers: {"Access-Control-Allow-Origin":"http://localhost:3000","Access-Control-Allow-Credentials":"true","vary":"Origin"}
-name: "ER_NO_DEFAULT_FOR_FIELDError"
-pid: 12968
+sql: "INSERT INTO `article`(`type_id`, `title`, `article_content`, `introduce`, `addTime`, `view_count`) VALUES(1, 'sajhdj', 'adfsf', 'sfdfff', 1601002279556, 1079)"
+headers: {"Access-Control-Allow-Origin":"http://127.0.0.1:3001","Access-Control-Allow-Credentials":"true","vary":"Origin"}
+name: "ER_WARN_DATA_OUT_OF_RANGEError"
+pid: 9924
 hostname: DESKTOP-TMQCRSH
 
